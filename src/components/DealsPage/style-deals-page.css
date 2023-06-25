@@ -1,0 +1,50 @@
+/* *{outline: 1px solid red;} */
+
+.heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8em;
+}
+
+.heading h1{
+    font-size: 80px;
+    color: var(--clr-accentGold);
+    text-align: center;
+}
+.heading p{
+    font-weight: 600;
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6em;
+}
+
+
+.card{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 1em;
+}
+
+.buttons {
+    display: flex;
+    gap: .4em;
+    justify-content: center;
+}
+
+.ProductImage {
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
