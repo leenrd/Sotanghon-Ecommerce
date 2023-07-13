@@ -1,28 +1,15 @@
 /* *{outline: 1px solid red;} */
-
-.heading{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 8em;
-}
-
-.heading h1{
-    font-size: 80px;
-    color: var(--clr-accentGold);
-    text-align: center;
-}
-.heading p{
-    font-weight: 600;
-}
 .content{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 6em;
+    padding-bottom: 8em;
 }
 
+.description {
+    text-align: center;
+}
 
 .card{
     width: 500px;

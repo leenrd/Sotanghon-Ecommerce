@@ -204,3 +204,21 @@ canvas, svg{
   /* outline: 1px solid red; */
 }
 
+.heading-cont{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8em;
+}
+
+.headingTitle{
+  font-size: 80px;
+  color: var(--clr-accentGold);
+  text-align: center;
+}
+
+.headsubText{
+  font-weight: 600;
+}
+

@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="hero container">
         <div className="mask">
         <h1 id="text" className="title">
-          BreadsAtYourDoorStep
+          BreadsAtYourDoorstep
         </h1>
         </div>
         <div className="sub">
@@ -17,7 +17,6 @@ const Hero = () => {
           </p>
           <span>Sotanghon&trade; All rights reserved</span>
         </div>
-        <i className="fa-solid fa-chevron-down fa-bounce" ></i>
       </div>
     </header>
   );
