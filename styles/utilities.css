@@ -222,3 +222,41 @@ canvas, svg{
   font-weight: 600;
 }
 
+/* homepage */
+.lineHomepage {
+  margin-inline: 5em;
+  color: var(--clr-greyLight);
+}
+.about {
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 10em;
+}
+.aboutText {
+  color: var(--clr-stoneDark);
+  font-size: 40px;
+}
+
+.aboutText span {
+  color: var(--clr-accentGold);
+}
+
+.items {
+  background: url(/assets/bakery.jpg);
+  height: 700px;
+  background-position: center;
+  background-size: cover;
+  color: var(--clr-slate);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.items .cta {
+  display: flex;
+  margin: 2em;
+  justify-content: center;
+  gap: 10px;
+}

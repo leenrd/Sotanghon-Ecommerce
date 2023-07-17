@@ -13,7 +13,7 @@ const Deals = () => {
             <div className="content">
                 {sampleBread.map(bread => {
                     return (
-                        <Card name={bread.name} description={bread.description} imageName={bread.imageName} imageAlt={bread.imageAlt} key={bread.id} />
+                        <Card name={bread.name} description={bread.description} imageName={bread.imageName} imageAlt={bread.imageAlt} price={bread.price} key={bread.id} />
                     )
                 })}
             </div>
@@ -22,11 +22,12 @@ const Deals = () => {
 }
 
 
-const Card = ({name, description, imageName, imageAlt}) => {
+const Card = ({name, description, imageName, imageAlt, price}) => {
     return (
         <div className="card">
                 <img className='ProductImage' src={`/assets/${imageName}`} alt={imageAlt} />
                 <h3>{name}</h3>
+                <p className='price'>{price}</p>
                 <p className='description'>{description}</p>
                 <div className="buttons">
                 <button className="btn-secondary">Buy</button>

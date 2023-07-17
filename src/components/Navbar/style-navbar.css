@@ -70,7 +70,11 @@ nav{
     justify-content: end;
     align-items: center;
 }
-
+.right button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
 .fa-cart-shopping {
     font-size: 1.3em;
     color: var(--clr-neutral);
@@ -91,3 +95,4 @@ nav{
     -ms-transition: background-color .3s ease-in-out;
     -o-transition: background-color .3s ease-in-out;
 }
+

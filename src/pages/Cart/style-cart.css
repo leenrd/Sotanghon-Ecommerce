@@ -1,0 +1,109 @@
+.cartSheet {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1001;
+    height: 100vh;
+    width: 500px;
+    background-color: var(--clr-neutral);
+    padding: 1.5em 2em;
+    border-left: 1px solid #242323;
+    animation: cart .4s ease-in-out;
+    -webkit-animation: cart .4s ease-in-out;
+}
+
+@keyframes cart {
+    from {
+        transform: translateX(500px);
+        -webkit-transform: translateX(500px);
+        -moz-transform: translateX(500px);
+        -ms-transform: translateX(500px);
+        -o-transform: translateX(500px);
+}
+    to {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+}
+}
+
+.cartEmpty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cartEmpty .emptyStateImage {
+    max-width: 100%;
+    width: 250px;
+}
+
+.headCart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart {
+    font-weight: 600;
+}
+
+.cartItems {
+    height: 60%;
+    overflow-y: auto;
+}
+.cartItems .emptyText {
+    padding: 2em;
+}
+.transaction * {
+    margin-bottom: 5px;
+}
+.text-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.checkOut {
+    width: 100%;
+    font-family: var(--font-regular);
+    font-size: .9rem;
+    font-weight: 600;
+    background-color: var(--clr-textDark);
+    color: var(--clr-greyDark);
+    padding: .8em 1.7em;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkOut:hover{
+    background-color: #242323;
+    transition: background-color .3s ease-in-out;
+    -webkit-transition: background-color .3s ease-in-out;
+    -moz-transition: background-color .3s ease-in-out;
+    -ms-transition: background-color .3s ease-in-out;
+    -o-transition: background-color .3s ease-in-out;
+}
+
+.screenOverlay{
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    position: fixed;
+    background-color: #00000075;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -ms-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+}
