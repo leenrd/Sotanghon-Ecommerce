@@ -35,13 +35,16 @@
     grid-template-columns: 1fr 1fr;
     cursor: pointer;
 }
-
+.menu * {
+    text-decoration: none;
+    color: var(--clr-neutral);
+}
 .menu, .contacts {
     display: flex;
     flex-direction: column;
 }
 
-.menu span:hover {
+.menu *:hover {
     color: var(--clr-accentGold);
 }
 

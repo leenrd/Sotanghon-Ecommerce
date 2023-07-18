@@ -1,6 +1,11 @@
 import './style-footer.css'
+import { useContext } from 'react'
+import { Link } from "react-router-dom"
+import { CartContext } from '../../App'
 
 function Footer() {
+    const { handleCart } = useContext(CartContext)
+
   return (
     <div className="footer">
         <div className="grid">
@@ -10,10 +15,12 @@ function Footer() {
             </div>
             <div className="links">
                 <div className="menu">
-                    <span>Items</span>
-                    <span>About</span>
-                    <span>Locations</span>
-                    <span>Cart</span>
+                    <Link to='/items'>Items</Link>
+                    <Link to='/about'>About</Link>
+                    <Link to='/location'>Locations</Link>
+                    <span
+                    onClick={() => handleCart()}
+                    >Cart</span>
                 </div>
                 <div className="contacts">
                     <span>09783782898</span>

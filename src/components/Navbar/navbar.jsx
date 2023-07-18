@@ -1,11 +1,13 @@
 import './style-navbar.css'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Cart from '../../pages/Cart/cart'
+import { CartContext } from '../../App'
+
 
 const Navbar = () => {
     const [navbar, setNavbar] = useState(false)
-    const [cartOn, setCartOn] = useState(false)
+    const { cartOn, handleCart } = useContext(CartContext)
 
     const changeStyle = () => {
         if(window.scrollY >= 94) {
@@ -16,10 +18,6 @@ const Navbar = () => {
     }
 
     window.addEventListener("scroll", changeStyle)
-
-    const handleCart = () => {
-        setCartOn(prevOn => !prevOn)
-    }
 
  return (
     <>
@@ -32,11 +30,15 @@ const Navbar = () => {
                 <div className="center navlinks">
                         <Link className='btn-ghost' to='/'>Home</Link>
                         <Link className='btn-ghost' to='/items'>Items</Link>
-                        <Link className='btn-ghost' to='/About'>About</Link>
-                        <Link className='btn-ghost' to='/Locations'>Locations</Link>
+                        <Link className='btn-ghost' to='/about'>About</Link>
+                        <Link className='btn-ghost' to='/location'>Locations</Link>
                 </div>
                 <div className="right">
-                    <button onClick={handleCart}><i className="fa-solid fa-cart-shopping"></i></button>
+                    <button onClick={handleCart}>
+                        <span className='notification-icon'>
+                            <i className="fa-solid fa-cart-shopping"></i>
+                        </span>
+                    </button>
                 </div>
             </nav>
     </div>

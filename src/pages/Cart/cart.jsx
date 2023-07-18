@@ -63,10 +63,10 @@ const CartItem = () => {
   return (
     <div className="boxContainer">
       <div className="boxItem">
-        <img src="/assets/Cheezymada-1024x681.jpg" alt="" />
+        <img src="/assets/saile-ilyas-T1AX0yT9dd4-unsplash.jpg" alt="" />
         <div className="Cartgrid">
           <div className="Cartleft">
-              <span className='itemName'>Cheezymada</span>
+              <span className='itemName'>Pandesal</span>
             <span className="tick">In Stock</span>
           </div>
           <div className="Cartright">

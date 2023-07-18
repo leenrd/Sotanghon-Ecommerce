@@ -69,6 +69,7 @@ nav{
     display: flex;
     justify-content: end;
     align-items: center;
+    position: relative;
 }
 .right button {
     background-color: transparent;
@@ -96,3 +97,18 @@ nav{
     -o-transition: background-color .3s ease-in-out;
 }
 
+.notification-icon {
+    position: relative;
+    display: inline-block;
+}
+
+.notification-icon::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--clr-accentGold);
+}
