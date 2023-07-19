@@ -1,36 +1,33 @@
-import './style-cart.css'
+import "./style-cart.css";
 
-function Cart({cartFunction}) {
-
+function Cart({ cartFunction }) {
   return (
     <>
-        <div
-        className="screenOverlay"
-        onClick={() => cartFunction()}
-        ></div>
-        <div className="cartSheet">
-            <div className="headCart">
-              <div className="cart">Cart(0)</div>
-              <button
-                className="closeCart btn-primary"
-                onClick={() => cartFunction()}
-              >
-              <i className="fa-solid fa-xmark"></i>
-              </button>
-            </div>
-            <hr />
-            <div className="cartEmpty">
-                <img src="/assets/UnboxingDoodle.png" alt="" className='emptyStateImage'/>
-                <h1 className='emptyText'>Your cart is empty</h1>
-                <button
-                className="btn-secondary"
-                onClick={() => cartFunction()}
-                >Continue Browsing</button>
-            </div>
-            <div className="cartItems">
-              {/* <CartItem /> */}
-            </div>
-            {/* <div className="transaction">
+      <div className="screenOverlay" onClick={() => cartFunction()}></div>
+      <div className="cartSheet">
+        <div className="headCart">
+          <div className="cart">Cart(0)</div>
+          <button
+            className="closeCart btn-primary"
+            onClick={() => cartFunction()}
+          >
+            <i className="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <hr />
+        <div className="cartEmpty">
+          <img
+            src="/assets/UnboxingDoodle.png"
+            alt=""
+            className="emptyStateImage"
+          />
+          <h1 className="emptyText">Your cart is empty</h1>
+          <button className="btn-secondary" onClick={() => cartFunction()}>
+            Continue Browsing
+          </button>
+        </div>
+        <div className="cartItems">{/* <CartItem /> */}</div>
+        {/* <div className="transaction">
               <hr />
               <div className="subtotal text-flex">
                 <span>Subtotal</span>
@@ -51,13 +48,12 @@ function Cart({cartFunction}) {
               </div>
               <button className="checkOut ">Proceed to Checkout</button>
             </div> */}
-        </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default Cart
-
+export default Cart;
 
 const CartItem = () => {
   return (
@@ -66,20 +62,21 @@ const CartItem = () => {
         <img src="/assets/saile-ilyas-T1AX0yT9dd4-unsplash.jpg" alt="" />
         <div className="Cartgrid">
           <div className="Cartleft">
-              <span className='itemName'>Pandesal</span>
+            <span className="itemName">Pandesal</span>
             <span className="tick">In Stock</span>
           </div>
           <div className="Cartright">
             <span>48 ₽</span>
             <div className="operations">
               <div className="adder">ewan</div>
-              <button className="remove btn-primary"><i className="fa-solid fa-trash"></i></button>
+              <button className="remove btn-primary">
+                <i className="fa-solid fa-trash"></i>
+              </button>
             </div>
           </div>
         </div>
-</div>
+      </div>
       <hr />
     </div>
-  )
-}
-
+  );
+};

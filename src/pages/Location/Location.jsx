@@ -1,6 +1,6 @@
-import { useRef } from 'react'
-import './style-location.css'
-import { locations } from '../../data/locationData'
+import { useRef } from "react";
+import "./style-location.css";
+import { locations } from "../../data/locationData";
 
 function Location() {
   const carouselRef = useRef(null);
@@ -20,45 +20,38 @@ function Location() {
         <p className="headsubText">Serving you Hot & Fresh</p>
       </div>
       <div className="stores" ref={carouselRef}>
-      {
-        locations.map(loc => {
+        {locations.map((loc) => {
           return (
             <LocationCard
-            key={loc.id}
-            image={loc.image}
-            alt={loc.alt}
-            title={loc.title}
-            description={loc.description} />
-          )
-        })
-      }
-        <button
-        className="nextbtn btn-secondary" 
-        onClick={scrollNext}>
+              key={loc.id}
+              image={loc.image}
+              alt={loc.alt}
+              title={loc.title}
+              description={loc.description}
+            />
+          );
+        })}
+        <button className="nextbtn btn-secondary" onClick={scrollNext}>
           <i className="fa-solid fa-chevron-right"></i>
         </button>
-        <button
-        className="prevbtn btn-secondary"
-        onClick={scrollPrev}>
+        <button className="prevbtn btn-secondary" onClick={scrollPrev}>
           <i className="fa-solid fa-chevron-right fa-flip-horizontal"></i>
-          </button>
+        </button>
       </div>
     </div>
-  )
+  );
 }
 
-const LocationCard = ({image, alt, title, description}) => {
-  return(
-    <div className='cardel'>
-      <img className='storeImg' src={`/assets/${image}`} alt={alt} />
+const LocationCard = ({ image, alt, title, description }) => {
+  return (
+    <div className="cardel">
+      <img className="storeImg" src={`/assets/${image}`} alt={alt} />
       <div className="desc">
         <h1 className="storeName">{title}</h1>
-        <p className="description">
-          {description}
-        </p>
+        <p className="description">{description}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Location
+export default Location;
