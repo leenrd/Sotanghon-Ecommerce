@@ -32,7 +32,11 @@ function Homepage() {
             ingredient to success.
           </p>
           <div className="cta">
-            <Link className="btn-secondary" to="/items">
+            <Link
+              className="btn-secondary"
+              to="/items"
+              style={{ textDecoration: "none" }}
+            >
               Items
             </Link>
             <button className="btn-outline" onClick={() => handleCart()}>

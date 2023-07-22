@@ -14,31 +14,34 @@ function Location() {
   };
 
   return (
-    <div className="location-content">
-      <div className="heading-cont">
-        <h3 className="headingTitle">Our Stores</h3>
-        <p className="headsubText">Serving you Hot & Fresh</p>
+    <>
+      <div className="bar"></div>
+      <div className="location-content">
+        <div className="heading-cont">
+          <h3 className="headingTitle">Our Stores</h3>
+          <p className="headsubText">Serving you Hot & Fresh</p>
+        </div>
+        <div className="stores" ref={carouselRef}>
+          {locations.map((loc) => {
+            return (
+              <LocationCard
+                key={loc.id}
+                image={loc.image}
+                alt={loc.alt}
+                title={loc.title}
+                description={loc.description}
+              />
+            );
+          })}
+          <button className="nextbtn btn-secondary" onClick={scrollNext}>
+            <i className="fa-solid fa-chevron-right"></i>
+          </button>
+          <button className="prevbtn btn-secondary" onClick={scrollPrev}>
+            <i className="fa-solid fa-chevron-right fa-flip-horizontal"></i>
+          </button>
+        </div>
       </div>
-      <div className="stores" ref={carouselRef}>
-        {locations.map((loc) => {
-          return (
-            <LocationCard
-              key={loc.id}
-              image={loc.image}
-              alt={loc.alt}
-              title={loc.title}
-              description={loc.description}
-            />
-          );
-        })}
-        <button className="nextbtn btn-secondary" onClick={scrollNext}>
-          <i className="fa-solid fa-chevron-right"></i>
-        </button>
-        <button className="prevbtn btn-secondary" onClick={scrollPrev}>
-          <i className="fa-solid fa-chevron-right fa-flip-horizontal"></i>
-        </button>
-      </div>
-    </div>
+    </>
   );
 }
 

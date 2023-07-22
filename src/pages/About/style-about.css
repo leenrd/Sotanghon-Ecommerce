@@ -1,0 +1,34 @@
+.bar {
+  background-color: black;
+  height: 80px;
+}
+
+.body {
+  margin-inline: 200px;
+}
+
+.firstP,
+.secondP,
+.thirdP {
+  margin-bottom: 5em;
+}
+.firstPic,
+.secondPic,
+.thirdPic {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  margin-bottom: 5em;
+}
+
+.secondPic,
+.thirdPic {
+  width: 500px;
+}
+
+.two-cont {
+  display: flex;
+  justify-content: space-around;
+}
