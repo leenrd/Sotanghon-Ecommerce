@@ -247,7 +247,6 @@ svg {
 .items {
   background: url(/assets/bakery.jpg);
   height: 700px;
-  background-position: center;
   background-size: cover;
   color: var(--clr-slate);
   display: flex;

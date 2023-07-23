@@ -1,12 +1,21 @@
+import { ShopContext } from "../../context/ShopContext";
 import "./style-cart.css";
+import { useContext } from "react";
 
 function Cart({ cartFunction }) {
+  const { cartItems, removeToCart } = useContext(ShopContext);
+  const itemAmount = Object.values(cartItems).reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+  console.log(cartItems.length);
+
   return (
     <>
       <div className="screenOverlay" onClick={() => cartFunction()}></div>
       <div className="cartSheet">
         <div className="headCart">
-          <div className="cart">Cart(0)</div>
+          <div className="cart">Cart({0 || itemAmount})</div>
           <button
             className="closeCart btn-primary"
             onClick={() => cartFunction()}
@@ -15,39 +24,7 @@ function Cart({ cartFunction }) {
           </button>
         </div>
         <hr />
-        <div className="cartEmpty">
-          <img
-            src="/assets/UnboxingDoodle.png"
-            alt=""
-            className="emptyStateImage"
-          />
-          <h1 className="emptyText">Your cart is empty</h1>
-          <button className="btn-secondary" onClick={() => cartFunction()}>
-            Continue Browsing
-          </button>
-        </div>
-        <div className="cartItems">{/* <CartItem /> */}</div>
-        {/* <div className="transaction">
-              <hr />
-              <div className="subtotal text-flex">
-                <span>Subtotal</span>
-                <span>some number 120</span>
-              </div>
-              <div className="shipping text-flex">
-                <span>Shipping</span>
-                <span>Free/some</span>
-              </div>
-              <div className="taxes text-flex">
-                <span>Taxes(VAT)</span>
-                <span>some nums</span>
-              </div>
-              <hr />
-              <div className="total text-flex">
-                <span>Total</span>
-                <span>total num</span>
-              </div>
-              <button className="checkOut ">Proceed to Checkout</button>
-            </div> */}
+        {/* cart items */}
       </div>
     </>
   );
@@ -55,21 +32,31 @@ function Cart({ cartFunction }) {
 
 export default Cart;
 
-const CartItem = () => {
+const CartItem = ({
+  image,
+  name,
+  inStock,
+  price,
+  imageAlt,
+  removeItemFromCart,
+}) => {
   return (
     <div className="boxContainer">
       <div className="boxItem">
-        <img src="/assets/saile-ilyas-T1AX0yT9dd4-unsplash.jpg" alt="" />
+        <img src={`assets/items/${image}`} alt={imageAlt} />
         <div className="Cartgrid">
           <div className="Cartleft">
-            <span className="itemName">Pandesal</span>
-            <span className="tick">In Stock</span>
+            <span className="itemName">{name}</span>
+            <span className="tick">{inStock}</span>
           </div>
           <div className="Cartright">
-            <span>48 ₽</span>
+            <span>{price}</span>
             <div className="operations">
               <div className="adder">ewan</div>
-              <button className="remove btn-primary">
+              <button
+                className="remove btn-primary"
+                onClick={() => removeItemFromCart()}
+              >
                 <i className="fa-solid fa-trash"></i>
               </button>
             </div>
@@ -77,6 +64,48 @@ const CartItem = () => {
         </div>
       </div>
       <hr />
+    </div>
+  );
+};
+
+const TransactionInfo = () => {
+  return (
+    <div className="transaction">
+      <hr />
+      <div className="subtotal text-flex">
+        <span>Subtotal</span>
+        <span>some number 120</span>
+      </div>
+      <div className="shipping text-flex">
+        <span>Shipping</span>
+        <span>Free/some</span>
+      </div>
+      <div className="taxes text-flex">
+        <span>Taxes(VAT)</span>
+        <span>some nums</span>
+      </div>
+      <hr />
+      <div className="total text-flex">
+        <span>Total</span>
+        <span>total num</span>
+      </div>
+      <button className="checkOut ">Proceed to Checkout</button>
+    </div>
+  );
+};
+
+const CartEmpty = ({ cartFunction }) => {
+  return (
+    <div className="cartEmpty">
+      <img
+        src="/assets/UnboxingDoodle.png"
+        alt=""
+        className="emptyStateImage"
+      />
+      <h1 className="emptyText">Your cart is empty</h1>
+      <button className="btn-secondary" onClick={() => cartFunction()}>
+        Continue Browsing
+      </button>
     </div>
   );
 };

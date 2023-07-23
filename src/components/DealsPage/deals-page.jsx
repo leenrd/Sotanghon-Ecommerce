@@ -1,40 +1,37 @@
-import './style-deals-page.css'
-import { sampleBread } from '../../data/breadsData'
+import "./style-deals-page.css";
+import { sampleBread } from "../../data/breadsData";
+import Card from "../Card";
 
 const Deals = () => {
-    return (
-        <div className='container'>
-            <div id='heading' className='heading-cont'>
-                <h1 className='headingTitle'>
-                    Our Hottest Deals
-                </h1>
-                <p className='headsubText'>Best Croissant and Cakes in town</p>
-            </div>
-            <div className="content">
-                {sampleBread.map(bread => {
-                    return (
-                        <Card name={bread.name} description={bread.description} imageName={bread.imageName} imageAlt={bread.imageAlt} price={bread.price} key={bread.id} />
-                    )
-                })}
-            </div>
-        </div>
-    )
-}
+  const sampleOne = sampleBread[0];
+  const sampleTwo = sampleBread[2];
 
+  return (
+    <div className="container">
+      <div id="heading" className="heading-cont">
+        <h1 className="headingTitle">Our Hottest Deals</h1>
+        <p className="headsubText">Best Croissant and Cakes in town</p>
+      </div>
+      <div className="content">
+        <Card
+          name={sampleOne.name}
+          description={sampleOne.description}
+          imageName={sampleOne.imageName}
+          imageAlt={sampleOne.imageAlt}
+          price={sampleOne.price}
+          key={sampleOne.id}
+        />
+        <Card
+          name={sampleTwo.name}
+          description={sampleTwo.description}
+          imageName={sampleTwo.imageName}
+          imageAlt={sampleTwo.imageAlt}
+          price={sampleTwo.price}
+          key={sampleTwo.id}
+        />
+      </div>
+    </div>
+  );
+};
 
-const Card = ({name, description, imageName, imageAlt, price}) => {
-    return (
-        <div className="card">
-                <img className='ProductImage' src={`/assets/${imageName}`} alt={imageAlt} />
-                <h3>{name}</h3>
-                <p className='price'>{price}</p>
-                <p className='description'>{description}</p>
-                <div className="buttons">
-                <button className="btn-secondary">Buy</button>
-                <button className="btn-primary"><i className="fa-solid fa-cart-plus"></i> Add to Cart</button>
-                </div>
-        </div>
-    )
-}
-
-export default Deals
+export default Deals;

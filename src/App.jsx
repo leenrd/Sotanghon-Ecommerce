@@ -7,6 +7,7 @@ import Items from "./pages/Items/items";
 import About from "./pages/About/about";
 import Location from "./pages/Location/Location";
 import Footer from "./components/Footer/footer";
+import { ShopContextProvider } from "./context/ShopContext";
 export const CartContext = createContext();
 
 function App() {
@@ -18,17 +19,19 @@ function App() {
   return (
     <>
       <Router>
-        <CartContext.Provider value={{ cartOn, setCartOn, handleCart }}>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/items" element={<Items />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/location" element={<Location />} />
-            {/* <Route path='*' element={<PageNotFound />}/> */}
-          </Routes>
-          <Footer />
-        </CartContext.Provider>
+        <ShopContextProvider>
+          <CartContext.Provider value={{ cartOn, setCartOn, handleCart }}>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/items" element={<Items />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/location" element={<Location />} />
+              {/* <Route path='*' element={<PageNotFound />}/> */}
+            </Routes>
+            <Footer />
+          </CartContext.Provider>
+        </ShopContextProvider>
       </Router>
     </>
   );

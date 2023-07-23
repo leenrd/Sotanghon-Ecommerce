@@ -15,7 +15,6 @@ function Location() {
 
   return (
     <>
-      <div className="bar"></div>
       <div className="location-content">
         <div className="heading-cont">
           <h3 className="headingTitle">Our Stores</h3>
