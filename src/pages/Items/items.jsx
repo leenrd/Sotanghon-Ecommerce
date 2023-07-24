@@ -6,7 +6,7 @@ import Card from "../../components/Card";
 
 const Items = () => {
   const [filterBtnClick, setfilterBtnClick] = useState(false);
-  const { cartItems, addToCart, removeToCart } = useContext(ShopContext);
+  const { addToCart } = useContext(ShopContext);
   const allItems = sampleBread.map((bread) => {
     return (
       <Card

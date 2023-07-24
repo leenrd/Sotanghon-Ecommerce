@@ -3,10 +3,16 @@ import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import Cart from "../../pages/Cart/cart";
 import { CartContext } from "../../App";
+import { ShopContext } from "../../context/ShopContext";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const { cartOn, handleCart } = useContext(CartContext);
+  const { cartItems } = useContext(ShopContext);
+  const itemAmount = Object.values(cartItems).reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
 
   const changeStyle = () => {
     if (window.scrollY >= 94) {
@@ -44,9 +50,13 @@ const Navbar = () => {
           </div>
           <div className="right">
             <button onClick={handleCart}>
-              <span className="notification-icon">
+              {itemAmount > 0 ? (
+                <span className="notification-icon">
+                  <i className="fa-solid fa-cart-shopping"></i>
+                </span>
+              ) : (
                 <i className="fa-solid fa-cart-shopping"></i>
-              </span>
+              )}
             </button>
           </div>
         </nav>

@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import { createContext, useState } from "react";
 import { sampleBread } from "../data/breadsData";
 
 export const ShopContext = createContext();

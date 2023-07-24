@@ -1,10 +1,13 @@
 import "./style-deals-page.css";
 import { sampleBread } from "../../data/breadsData";
+import { ShopContext } from "../../context/ShopContext";
 import Card from "../Card";
+import { useContext } from "react";
 
 const Deals = () => {
   const sampleOne = sampleBread[0];
   const sampleTwo = sampleBread[2];
+  const { addToCart } = useContext(ShopContext);
 
   return (
     <div className="container">
@@ -20,6 +23,8 @@ const Deals = () => {
           imageAlt={sampleOne.imageAlt}
           price={sampleOne.price}
           key={sampleOne.id}
+          id={sampleOne.id}
+          addItemToCart={() => addToCart(sampleOne.id)}
         />
         <Card
           name={sampleTwo.name}
@@ -28,6 +33,8 @@ const Deals = () => {
           imageAlt={sampleTwo.imageAlt}
           price={sampleTwo.price}
           key={sampleTwo.id}
+          id={sampleTwo.id}
+          addItemToCart={() => addToCart(sampleTwo.id)}
         />
       </div>
     </div>

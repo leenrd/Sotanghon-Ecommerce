@@ -185,3 +185,40 @@
   align-items: end;
   gap: 0.3em;
 }
+
+.adder {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 6px;
+  margin-right: 5px;
+}
+
+.adder .plus,
+.adder .minus {
+  padding: 5px 8px;
+  font-weight: 600;
+  color: white;
+  background-color: #242323;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-style: none;
+  cursor: pointer;
+}
+
+.adder .minus {
+  padding-inline: 9px;
+}
+
+.adder span {
+  padding: 1.3px 10px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border: 0.6px solid black;
+}

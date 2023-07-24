@@ -1,6 +1,7 @@
 import { ShopContext } from "../../context/ShopContext";
 import "./style-cart.css";
-import { useContext } from "react";
+import { sampleBread } from "../../data/breadsData";
+import { useContext, useState } from "react";
 
 function Cart({ cartFunction }) {
   const { cartItems, removeToCart } = useContext(ShopContext);
@@ -8,7 +9,6 @@ function Cart({ cartFunction }) {
     (accumulator, currentValue) => accumulator + currentValue,
     0
   );
-  console.log(cartItems.length);
 
   return (
     <>
@@ -24,7 +24,31 @@ function Cart({ cartFunction }) {
           </button>
         </div>
         <hr />
-        {/* cart items */}
+        {itemAmount < 1 ? (
+          <CartEmpty cartFunction={cartFunction} />
+        ) : (
+          <>
+            <div className="cartItems">
+              {sampleBread.map((bread) => {
+                if (cartItems[bread.id] !== 0) {
+                  return (
+                    <CartItem
+                      image={bread.imageName}
+                      name={bread.name}
+                      inStock={bread.inStock}
+                      price={bread.price}
+                      imageAlt={bread.imageAlt}
+                      removeItemFromCart={() => removeToCart()}
+                      key={bread.id}
+                      id={bread.id}
+                    />
+                  );
+                }
+              })}
+            </div>
+            <TransactionInfo />
+          </>
+        )}
       </div>
     </>
   );
@@ -33,6 +57,7 @@ function Cart({ cartFunction }) {
 export default Cart;
 
 const CartItem = ({
+  id,
   image,
   name,
   inStock,
@@ -40,6 +65,9 @@ const CartItem = ({
   imageAlt,
   removeItemFromCart,
 }) => {
+  const { cartItems, addToCart, removeToCart } = useContext(ShopContext);
+  const itemAmount = cartItems[id];
+
   return (
     <div className="boxContainer">
       <div className="boxItem">
@@ -52,10 +80,18 @@ const CartItem = ({
           <div className="Cartright">
             <span>{price}</span>
             <div className="operations">
-              <div className="adder">ewan</div>
+              <div className="adder">
+                <button className="plus" onClick={() => addToCart(id)}>
+                  +
+                </button>
+                <span className="counter">{itemAmount}</span>
+                <button className="minus" onClick={() => removeToCart(id)}>
+                  -
+                </button>
+              </div>
               <button
                 className="remove btn-primary"
-                onClick={() => removeItemFromCart()}
+                onClick={removeItemFromCart}
               >
                 <i className="fa-solid fa-trash"></i>
               </button>
