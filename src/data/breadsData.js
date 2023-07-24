@@ -7,6 +7,7 @@ export const sampleBread = [
     imageName: "saile-ilyas-T1AX0yT9dd4-unsplash.jpg",
     imageAlt: "pandesal image",
     price: 10 + " ₽/pc",
+    inStock: "In Stock",
     tags: ["bread"],
   },
   {
@@ -16,6 +17,7 @@ export const sampleBread = [
     imageName: "Cheezymada-1024x681.jpg",
     imageAlt: "cheezymada image",
     price: 40 + " ₽/pc",
+    inStock: "In Stock",
     tags: ["bread", "sweet"],
   },
   {
@@ -25,6 +27,7 @@ export const sampleBread = [
     imageName: "farhan-shaikh-rVOIf6tc5DU-unsplash.jpg",
     imageAlt: "lovebuns image",
     price: 20 + " ₽/pc",
+    inStock: "In Stock",
     tags: ["bread", "sweet"],
   },
   {
@@ -34,6 +37,7 @@ export const sampleBread = [
     imageName: "aneta-voborilova-c8ovzYe3z0s-unsplash.jpg",
     imageAlt: "donuts image",
     price: 60 + " ₽/pc",
+    inStock: "In Stock",
     tags: ["sweet"],
   },
   {
@@ -43,6 +47,7 @@ export const sampleBread = [
     imageName: "otto-norin-uG3Vu5TXKxE-unsplash.jpg",
     imageAlt: "chocorolls image",
     price: 30 + " ₽/pc",
+    inStock: "In Stock",
     tags: ["bread", "sweet"],
   },
   {
@@ -52,6 +57,7 @@ export const sampleBread = [
     imageName: "chelsea-audibert-hV1gChgMa-k-unsplash.jpg",
     imageAlt: "muffins image",
     price: 15 + " ₽/pc",
+    inStock: "In Stock",
     tags: ["sweet"],
   },
   {
@@ -61,6 +67,7 @@ export const sampleBread = [
     imageName: "lore-schodts-FIxdY7jOBus-unsplash.jpg",
     imageAlt: "wafflefrycupcakes image",
     price: 45 + " ₽/pc",
+    inStock: "In Stock",
     tags: ["bread", "sweet", "cake"],
   },
   {
@@ -70,6 +77,7 @@ export const sampleBread = [
     imageName: "conor-brown-sqkXyyj4WdE-unsplash.jpg",
     imageAlt: "croissant image",
     price: 55 + " ₽/pc",
+    inStock: "In Stock",
     tags: ["bread"],
   },
   {
@@ -79,6 +87,7 @@ export const sampleBread = [
     imageName: "deva-williamson-S2jw81lfrG0-unsplash.jpg",
     imageAlt: "strawberrycreamcupcake image",
     price: 20 + " ₽/pc",
+    inStock: "In Stock",
     tags: ["bread", "sweet", "cake"],
   },
 ];

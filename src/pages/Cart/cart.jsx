@@ -4,7 +4,7 @@ import { sampleBread } from "../../data/breadsData";
 import { useContext, useState } from "react";
 
 function Cart({ cartFunction }) {
-  const { cartItems, removeToCart } = useContext(ShopContext);
+  const { cartItems, removeToCart, removeItem } = useContext(ShopContext);
   const itemAmount = Object.values(cartItems).reduce(
     (accumulator, currentValue) => accumulator + currentValue,
     0
@@ -38,7 +38,7 @@ function Cart({ cartFunction }) {
                       inStock={bread.inStock}
                       price={bread.price}
                       imageAlt={bread.imageAlt}
-                      removeItemFromCart={() => removeToCart()}
+                      removeItemFromCart={() => removeItem(bread.id)}
                       key={bread.id}
                       id={bread.id}
                     />
