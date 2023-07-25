@@ -1,10 +1,10 @@
 import { ShopContext } from "../../context/ShopContext";
 import "./style-cart.css";
 import { sampleBread } from "../../data/breadsData";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 function Cart({ cartFunction }) {
-  const { cartItems, removeToCart, removeItem } = useContext(ShopContext);
+  const { cartItems, removeItem, TotalCart } = useContext(ShopContext);
   const itemAmount = Object.values(cartItems).reduce(
     (accumulator, currentValue) => accumulator + currentValue,
     0
@@ -46,7 +46,7 @@ function Cart({ cartFunction }) {
                 }
               })}
             </div>
-            <TransactionInfo />
+            <TransactionInfo totalFunction={() => TotalCart()} />
           </>
         )}
       </div>
@@ -78,7 +78,7 @@ const CartItem = ({
             <span className="tick">{inStock}</span>
           </div>
           <div className="Cartright">
-            <span>{price}</span>
+            <span>{price} ₽/pc</span>
             <div className="operations">
               <div className="adder">
                 <button className="plus" onClick={() => addToCart(id)}>
@@ -104,26 +104,29 @@ const CartItem = ({
   );
 };
 
-const TransactionInfo = () => {
+const TransactionInfo = ({ totalFunction }) => {
+  const subTotal = totalFunction();
+  const vat = (5 / 100) * subTotal;
+  const total = subTotal + vat;
   return (
     <div className="transaction">
       <hr />
       <div className="subtotal text-flex">
         <span>Subtotal</span>
-        <span>some number 120</span>
+        <p>₽ {subTotal}</p>
       </div>
       <div className="shipping text-flex">
         <span>Shipping</span>
-        <span>Free/some</span>
+        <span>Free</span>
       </div>
       <div className="taxes text-flex">
         <span>Taxes(VAT)</span>
-        <span>some nums</span>
+        <span>5% upon Checkout</span>
       </div>
       <hr />
       <div className="total text-flex">
         <span>Total</span>
-        <span>total num</span>
+        <span>₽ {total}</span>
       </div>
       <button className="checkOut ">Proceed to Checkout</button>
     </div>

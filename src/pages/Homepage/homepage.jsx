@@ -5,12 +5,14 @@ import Location from "../Location/Location";
 import { CartContext } from "../../App";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { BuyModal } from "../../components/BuyModal";
 
 function Homepage() {
-  const { handleCart } = useContext(CartContext);
+  const { handleCart, openModal } = useContext(CartContext);
 
   return (
     <>
+      {openModal && <BuyModal />}
       <Hero />
       <div className="about">
         <p className="aboutText">

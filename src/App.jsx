@@ -12,6 +12,11 @@ export const CartContext = createContext();
 
 function App() {
   const [cartOn, setCartOn] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleBuy = () => {
+    setOpenModal((prev) => !prev);
+  };
   const handleCart = () => {
     setCartOn((prevOn) => !prevOn);
   };
@@ -20,7 +25,16 @@ function App() {
     <>
       <Router>
         <ShopContextProvider>
-          <CartContext.Provider value={{ cartOn, setCartOn, handleCart }}>
+          <CartContext.Provider
+            value={{
+              cartOn,
+              setCartOn,
+              handleCart,
+              handleBuy,
+              openModal,
+              setOpenModal,
+            }}
+          >
             <Navbar />
             <Routes>
               <Route path="/" element={<Homepage />} />
