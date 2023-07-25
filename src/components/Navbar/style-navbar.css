@@ -22,7 +22,7 @@ nav {
 .active {
   backdrop-filter: blur(10px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(35, 35, 35, 0.75);
+  background-color: rgba(17, 17, 17, 0.75);
   outline: 0.5px solid rgba(187, 187, 187, 0.75);
 }
 
