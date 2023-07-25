@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <>
       {cartOn && <Cart cartFunction={handleCart} />}
-      <div className={navbar ? "navbar container active" : "navbar container"}>
+      <div className={navbar ? "navbar active" : "navbar"}>
         <nav>
           <div className="left">
             <a href="/" className="logolink">
@@ -49,7 +49,10 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="right">
-            <button onClick={handleCart}>
+            {/* <button className="btn-ghost">
+              <i className="fa-solid fa-bars"></i>
+            </button> */}
+            <button onClick={handleCart} className="cartBTN">
               {itemAmount > 0 ? (
                 <span className="notification-icon">
                   <i className="fa-solid fa-cart-shopping"></i>

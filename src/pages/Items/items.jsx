@@ -5,9 +5,9 @@ import { ShopContext } from "../../context/ShopContext";
 import Card from "../../components/Card";
 
 const Items = () => {
-  const [filterBtnClick, setfilterBtnClick] = useState(false);
   const { addToCart } = useContext(ShopContext);
-  const allItems = sampleBread.map((bread) => {
+
+  const All = sampleBread.map((bread) => {
     return (
       <Card
         name={bread.name}
@@ -22,9 +22,21 @@ const Items = () => {
     );
   });
 
-  const handleClick = () => {
-    setfilterBtnClick((prevfilterBtnClick) => !prevfilterBtnClick);
-  };
+  // const filteredItems = sampleBread.filter((bread) =>
+  //   bread.tags.includes(categ)
+  // );
+  // const filteredCards = filteredItems.map((bread) => (
+  //   <Card
+  //     name={bread.name}
+  //     description={bread.description}
+  //     imageName={bread.imageName}
+  //     imageAlt={bread.imageAlt}
+  //     price={bread.price}
+  //     id={bread.id}
+  //     key={bread.id}
+  //     addItemToCart={() => addToCart(bread.id)}
+  //   />
+  // ));
 
   return (
     <>
@@ -36,28 +48,15 @@ const Items = () => {
           to you
         </p>
         <div className="filters">
-          <button className="clicked">All</button>
-          <button
-            className={filterBtnClick ? "clicked" : "btn-secondary"}
-            onClick={handleClick}
-          >
-            Breads
+          <button className="clicked" onClick={All}>
+            All
           </button>
-          <button
-            className={filterBtnClick ? "clicked" : "btn-secondary"}
-            onClick={handleClick}
-          >
-            Sweets
-          </button>
-          <button
-            className={filterBtnClick ? "clicked" : "btn-secondary"}
-            onClick={handleClick}
-          >
-            Cakes
-          </button>
+          <button className="btn-secondary">Breads</button>
+          <button className="btn-secondary">Sweets</button>
+          <button className="btn-secondary">Cakes</button>
         </div>
       </div>
-      <div className="items-cont">{allItems}</div>
+      <div className="items-cont">{All}</div>
     </>
   );
 };

@@ -2,7 +2,7 @@ import { useRef } from "react";
 import "./style-location.css";
 import { locations } from "../../data/locationData";
 
-function Location() {
+export default function Location() {
   const carouselRef = useRef(null);
 
   const scrollNext = () => {
@@ -15,6 +15,7 @@ function Location() {
 
   return (
     <>
+      <div className="bar"></div>
       <div className="location-content">
         <div className="heading-cont">
           <h3 className="headingTitle">Our Stores</h3>
@@ -44,7 +45,7 @@ function Location() {
   );
 }
 
-const LocationCard = ({ image, alt, title, description }) => {
+export const LocationCard = ({ image, alt, title, description }) => {
   return (
     <div className="cardel">
       <img className="storeImg" src={`/assets/${image}`} alt={alt} />
@@ -55,5 +56,3 @@ const LocationCard = ({ image, alt, title, description }) => {
     </div>
   );
 };
-
-export default Location;

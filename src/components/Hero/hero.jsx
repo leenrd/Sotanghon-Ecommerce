@@ -1,15 +1,13 @@
-import './style-hero.css';
-
+import "./style-hero.css";
 
 const Hero = () => {
-
   return (
     <header>
-      <div className="hero container">
+      <div className="hero">
         <div className="mask">
-        <h1 id="text" className="title">
-          BreadsAtYourDoorstep
-        </h1>
+          <h1 id="text" className="title">
+            BreadsAtYourDoorstep
+          </h1>
         </div>
         <div className="sub">
           <p className="subtext">

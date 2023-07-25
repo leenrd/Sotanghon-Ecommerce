@@ -10,7 +10,7 @@ const Deals = () => {
   const { addToCart } = useContext(ShopContext);
 
   return (
-    <div className="container">
+    <div className="containercon">
       <div id="heading" className="heading-cont">
         <h1 className="headingTitle">Our Hottest Deals</h1>
         <p className="headsubText">Best Croissant and Cakes in town</p>

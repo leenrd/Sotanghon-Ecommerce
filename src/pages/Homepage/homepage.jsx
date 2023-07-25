@@ -1,18 +1,25 @@
 // import React from 'react'
 import Hero from "../../components/Hero/hero";
 import Deals from "../../components/DealsPage/deals-page";
-import Location from "../Location/Location";
+import { locations } from "../../data/locationData";
 import { CartContext } from "../../App";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
-import { BuyModal } from "../../components/BuyModal";
+import { LocationCard } from "../Location/Location";
 
 function Homepage() {
-  const { handleCart, openModal } = useContext(CartContext);
+  const { handleCart } = useContext(CartContext);
+  const carouselRef = useRef(null);
 
+  const scrollNext = () => {
+    carouselRef.current.scrollLeft += carouselRef.current.offsetWidth;
+  };
+
+  const scrollPrev = () => {
+    carouselRef.current.scrollLeft -= carouselRef.current.offsetWidth;
+  };
   return (
     <>
-      {openModal && <BuyModal />}
       <Hero />
       <div className="about">
         <p className="aboutText">
@@ -47,7 +54,31 @@ function Homepage() {
           </div>
         </div>
       </div>
-      <Location />
+      <div className="location-content">
+        <div className="heading-cont">
+          <h3 className="headingTitle">Our Stores</h3>
+          <p className="headsubText">Serving you Hot & Fresh</p>
+        </div>
+        <div className="stores" ref={carouselRef}>
+          {locations.map((loc) => {
+            return (
+              <LocationCard
+                key={loc.id}
+                image={loc.image}
+                alt={loc.alt}
+                title={loc.title}
+                description={loc.description}
+              />
+            );
+          })}
+          <button className="nextbtn btn-secondary" onClick={scrollNext}>
+            <i className="fa-solid fa-chevron-right"></i>
+          </button>
+          <button className="prevbtn btn-secondary" onClick={scrollPrev}>
+            <i className="fa-solid fa-chevron-right fa-flip-horizontal"></i>
+          </button>
+        </div>
+      </div>
     </>
   );
 }

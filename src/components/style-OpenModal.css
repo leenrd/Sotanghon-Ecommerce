@@ -12,6 +12,7 @@
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  outline: 1px solid black;
 }
 
 .gridModal {
@@ -22,6 +23,11 @@
 
 .leftModal {
   min-width: 30em;
+}
+
+.rightModal {
+  display: flex;
+  align-items: center;
 }
 
 .headModal {
@@ -36,8 +42,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 1em;
+  align-items: center;
 }
-
 .checkOut {
   margin-top: 3em;
 }

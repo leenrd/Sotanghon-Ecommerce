@@ -9,15 +9,13 @@
   -moz-transition: background-color 0.3s ease;
   -ms-transition: background-color 0.3s ease;
   -o-transition: background-color 0.3s ease;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
   z-index: 999;
 }
 
 nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 0.5em 1.3em;
+  padding: 0.5em 5em;
   background: transparent;
 }
 
@@ -26,8 +24,6 @@ nav {
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(60, 60, 60, 0.75);
   outline: 0.5px solid rgba(187, 187, 187, 0.75);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
 }
 
 .logolink {
@@ -111,4 +107,16 @@ nav {
   height: 10px;
   border-radius: 50%;
   background-color: var(--clr-accentGold);
+}
+
+@media (max-width: 768px) {
+  .navlinks {
+    display: none;
+  }
+  nav {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cartBTN {
+    display: none;
+  }
 }
