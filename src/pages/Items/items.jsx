@@ -6,37 +6,32 @@ import Card from "../../components/Card";
 
 const Items = () => {
   const { addToCart } = useContext(ShopContext);
+  const [data, setData] = useState(sampleBread);
 
-  const All = sampleBread.map((bread) => {
-    return (
-      <Card
-        name={bread.name}
-        description={bread.description}
-        imageName={bread.imageName}
-        imageAlt={bread.imageAlt}
-        price={bread.price}
-        id={bread.id}
-        key={bread.id}
-        addItemToCart={() => addToCart(bread.id)}
-      />
-    );
-  });
+  const filterItems = (categ) => {
+    const filteredItems = data.filter((bread) => {
+      return bread.tags.includes(categ);
+    });
 
-  // const filteredItems = sampleBread.filter((bread) =>
-  //   bread.tags.includes(categ)
-  // );
-  // const filteredCards = filteredItems.map((bread) => (
-  //   <Card
-  //     name={bread.name}
-  //     description={bread.description}
-  //     imageName={bread.imageName}
-  //     imageAlt={bread.imageAlt}
-  //     price={bread.price}
-  //     id={bread.id}
-  //     key={bread.id}
-  //     addItemToCart={() => addToCart(bread.id)}
-  //   />
-  // ));
+    setData(filteredItems);
+  };
+
+  const getAllItems = () => {
+    sampleBread.map((bread) => {
+      return (
+        <Card
+          name={bread.name}
+          description={bread.description}
+          imageName={bread.imageName}
+          imageAlt={bread.imageAlt}
+          price={bread.price}
+          id={bread.id}
+          key={bread.id}
+          addItemToCart={() => addToCart(bread.id)}
+        />
+      );
+    });
+  };
 
   return (
     <>
@@ -48,15 +43,42 @@ const Items = () => {
           to you
         </p>
         <div className="filters">
-          <button className="clicked" onClick={All}>
+          <button className="clicked" onClick={() => getAllItems()}>
             All
           </button>
-          <button className="btn-secondary">Breads</button>
-          <button className="btn-secondary">Sweets</button>
-          <button className="btn-secondary">Cakes</button>
+          <button
+            className="btn-secondary"
+            onClick={() => filterItems("bread")}
+          >
+            Breads
+          </button>
+          <button
+            className="btn-secondary"
+            onClick={() => filterItems("sweet")}
+          >
+            Sweets
+          </button>
+          <button className="btn-secondary" onClick={() => filterItems("cake")}>
+            Cakes
+          </button>
         </div>
       </div>
-      <div className="items-cont">{All}</div>
+      <div className="items-cont">
+        {data.map((bread) => {
+          return (
+            <Card
+              name={bread.name}
+              description={bread.description}
+              imageName={bread.imageName}
+              imageAlt={bread.imageAlt}
+              price={bread.price}
+              id={bread.id}
+              key={bread.id}
+              addItemToCart={() => addToCart(bread.id)}
+            />
+          );
+        })}
+      </div>
     </>
   );
 };
