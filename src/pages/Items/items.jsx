@@ -9,28 +9,11 @@ const Items = () => {
   const [data, setData] = useState(sampleBread);
 
   const filterItems = (categ) => {
-    const filteredItems = data.filter((bread) => {
+    const filteredItems = sampleBread.filter((bread) => {
       return bread.tags.includes(categ);
     });
 
     setData(filteredItems);
-  };
-
-  const getAllItems = () => {
-    sampleBread.map((bread) => {
-      return (
-        <Card
-          name={bread.name}
-          description={bread.description}
-          imageName={bread.imageName}
-          imageAlt={bread.imageAlt}
-          price={bread.price}
-          id={bread.id}
-          key={bread.id}
-          addItemToCart={() => addToCart(bread.id)}
-        />
-      );
-    });
   };
 
   return (
@@ -43,24 +26,22 @@ const Items = () => {
           to you
         </p>
         <div className="filters">
-          <button className="clicked" onClick={() => getAllItems()}>
-            All
-          </button>
-          <button
-            className="btn-secondary"
-            onClick={() => filterItems("bread")}
-          >
-            Breads
-          </button>
-          <button
-            className="btn-secondary"
-            onClick={() => filterItems("sweet")}
-          >
-            Sweets
-          </button>
-          <button className="btn-secondary" onClick={() => filterItems("cake")}>
-            Cakes
-          </button>
+          <ButtonFilter
+            filterFunction={() => filterItems("All")}
+            buttonFor={"All"}
+          />
+          <ButtonFilter
+            filterFunction={() => filterItems("Breads")}
+            buttonFor={"Breads"}
+          />
+          <ButtonFilter
+            filterFunction={() => filterItems("Sweets")}
+            buttonFor={"Sweets"}
+          />
+          <ButtonFilter
+            filterFunction={() => filterItems("Cakes")}
+            buttonFor={"Cakes"}
+          />
         </div>
       </div>
       <div className="items-cont">
@@ -84,3 +65,11 @@ const Items = () => {
 };
 
 export default Items;
+
+const ButtonFilter = ({ filterFunction, buttonFor }) => {
+  return (
+    <button className={"btn-secondary"} onClick={filterFunction}>
+      {buttonFor}
+    </button>
+  );
+};

@@ -203,6 +203,7 @@ svg {
 
 .headsubText {
   font-weight: 600;
+  text-align: center;
 }
 
 /* homepage */
@@ -227,7 +228,7 @@ svg {
 }
 
 .items {
-  background: url(/assets/bakery.jpg);
+  background: url(/assets/bakery.webp);
   height: 700px;
   background-size: cover;
   color: var(--clr-slate);
