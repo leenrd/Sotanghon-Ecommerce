@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/navbar";
 import Items from "./pages/Items/items";
 import About from "./pages/About/about";
 import Location from "./pages/Location/Location";
+import PageNotFound from "./pages/PageNotFound/page-not-found";
 import Footer from "./components/Footer/footer";
 import { ShopContextProvider } from "./context/ShopContext";
 export const CartContext = createContext();
@@ -41,7 +42,7 @@ function App() {
               <Route path="/items" element={<Items />} />
               <Route path="/about" element={<About />} />
               <Route path="/location" element={<Location />} />
-              {/* <Route path='*' element={<PageNotFound />}/> */}
+              <Route path="*" element={<PageNotFound />} />
             </Routes>
             <Footer />
           </CartContext.Provider>
