@@ -7,6 +7,7 @@ import Card from "../../components/Card";
 const Items = () => {
   const { addToCart } = useContext(ShopContext);
   const [data, setData] = useState(sampleBread);
+  const [pressed, setPressed] = useState(false);
 
   const filterItems = (categ) => {
     const filteredItems = sampleBread.filter((bread) => {

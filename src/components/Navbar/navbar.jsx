@@ -9,7 +9,11 @@ import CartButton from "../cart-button";
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const { cartOn, handleCart } = useContext(CartContext);
-
+  const { cartItems } = useContext(ShopContext);
+  const itemAmount = Object.values(cartItems).reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
   const changeStyle = () => {
     if (window.scrollY >= 94) {
       setNavbar(true);
@@ -45,9 +49,9 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="right">
-            {/* <button className="btn-ghost">
+            <button className="btn-ghost mobileBars">
               <i className="fa-solid fa-bars"></i>
-            </button> */}
+            </button>
             <CartButton />
           </div>
         </nav>

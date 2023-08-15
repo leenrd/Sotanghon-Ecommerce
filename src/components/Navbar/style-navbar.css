@@ -109,14 +109,19 @@ nav {
   background-color: var(--clr-accentGold);
 }
 
+.right .mobileBars {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .navlinks {
     display: none;
   }
+  .right .mobileBars {
+    display: block;
+    cursor: pointer;
+  }
   nav {
     grid-template-columns: 1fr 1fr;
-  }
-  .cartBTN {
-    display: none;
   }
 }

@@ -228,7 +228,7 @@ svg {
 }
 
 .items {
-  background: url(/assets/bakery.webp);
+  background: url(/assets/bakery.jpg);
   height: 700px;
   background-size: cover;
   color: var(--clr-slate);
