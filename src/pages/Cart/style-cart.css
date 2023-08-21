@@ -56,7 +56,7 @@
 
 .cartItems {
   height: 60%;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 .cartItems .emptyText {
   padding: 2em;
@@ -118,6 +118,13 @@
   display: flex;
   align-items: center;
   padding: 1em;
+  outline: 1px solid grey;
+  margin: 0.5em 0.2em;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 .boxItem img {
@@ -156,7 +163,7 @@
 }
 
 .operations .remove {
-  padding: 0.6em;
+  padding: 0.5em;
   font-weight: 200;
 }
 

@@ -7,13 +7,43 @@ import Card from "../../components/Card";
 const Items = () => {
   const { addToCart } = useContext(ShopContext);
   const [data, setData] = useState(sampleBread);
-  const [pressed, setPressed] = useState(false);
+  const [pressed, setPressed] = useState([
+    {
+      id: 1,
+      on: false,
+      categ: "All",
+      for: "All",
+    },
+    {
+      id: 2,
+      on: false,
+      categ: "Breads",
+      for: "Breads",
+    },
+    {
+      id: 3,
+      on: false,
+      categ: "Sweets",
+      for: "Sweets",
+    },
+    {
+      id: 4,
+      on: false,
+      categ: "Cakes",
+      for: "Cakes",
+    },
+  ]);
 
-  const filterItems = (categ) => {
+  const filterItems = (categ, id) => {
     const filteredItems = sampleBread.filter((bread) => {
       return bread.tags.includes(categ);
     });
 
+    setPressed((prev) =>
+      prev.map((btn) => {
+        return btn.id === id ? { ...btn, on: !btn.on } : { ...btn, on: false };
+      })
+    );
     setData(filteredItems);
   };
 
@@ -27,22 +57,16 @@ const Items = () => {
           to you
         </p>
         <div className="filters">
-          <ButtonFilter
-            filterFunction={() => filterItems("All")}
-            buttonFor={"All"}
-          />
-          <ButtonFilter
-            filterFunction={() => filterItems("Breads")}
-            buttonFor={"Breads"}
-          />
-          <ButtonFilter
-            filterFunction={() => filterItems("Sweets")}
-            buttonFor={"Sweets"}
-          />
-          <ButtonFilter
-            filterFunction={() => filterItems("Cakes")}
-            buttonFor={"Cakes"}
-          />
+          {pressed.map((btn) => {
+            return (
+              <ButtonFilter
+                key={btn.id}
+                filterFunction={() => filterItems(btn.categ, btn.id)}
+                buttonFor={btn.for}
+                on={btn.on}
+              />
+            );
+          })}
         </div>
       </div>
       <div className="items-cont">
@@ -67,9 +91,12 @@ const Items = () => {
 
 export default Items;
 
-const ButtonFilter = ({ filterFunction, buttonFor }) => {
+const ButtonFilter = ({ filterFunction, buttonFor, on }) => {
   return (
-    <button className={"btn-secondary"} onClick={filterFunction}>
+    <button
+      className={on ? "btn-primary clicked" : "btn-secondary"}
+      onClick={filterFunction}
+    >
       {buttonFor}
     </button>
   );

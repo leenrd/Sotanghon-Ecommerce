@@ -99,7 +99,6 @@ const CartItem = ({
           </div>
         </div>
       </div>
-      <hr />
     </div>
   );
 };
