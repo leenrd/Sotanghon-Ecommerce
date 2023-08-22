@@ -9,7 +9,7 @@ import Location from "./pages/Location/Location";
 import PageNotFound from "./pages/PageNotFound/page-not-found";
 import Footer from "./components/Footer/footer";
 import { ShopContextProvider } from "./context/ShopContext";
-import CartButton from "./components/cart-button";
+import ScrollToTop from "./components/scrollRestore";
 export const CartContext = createContext();
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
   return (
     <>
       <Router>
+        <ScrollToTop />
         <ShopContextProvider>
           <CartContext.Provider
             value={{

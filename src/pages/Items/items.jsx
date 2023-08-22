@@ -10,7 +10,7 @@ const Items = () => {
   const [pressed, setPressed] = useState([
     {
       id: 1,
-      on: false,
+      on: true,
       categ: "All",
       for: "All",
     },
@@ -41,7 +41,7 @@ const Items = () => {
 
     setPressed((prev) =>
       prev.map((btn) => {
-        return btn.id === id ? { ...btn, on: !btn.on } : { ...btn, on: false };
+        return btn.id === id ? { ...btn, on: true } : { ...btn, on: false };
       })
     );
     setData(filteredItems);
